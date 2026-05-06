@@ -1,0 +1,20 @@
+[
+  {
+    "Name": "Theo",
+    "Role": "Head Chef",
+    "Shift": "Morning",
+    "Certified": true
+  },
+  {
+    "Name": "Jordan",
+    "Role": "Cashier",
+    "Shift": "Afternoon",
+    "Certified": false
+  },
+  {
+    "Name": "Maria",
+    "Role": "Driver",
+    "Shift": "Evening",
+    "Certified": true
+  }
+]

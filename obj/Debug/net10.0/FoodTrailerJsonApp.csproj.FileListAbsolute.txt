@@ -1,0 +1,14 @@
+C:\Users\Theo\Desktop\FoodTrailerJsonApp\obj\Debug\net10.0\FoodTrailerJsonApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Theo\Desktop\FoodTrailerJsonApp\obj\Debug\net10.0\FoodTrailerJsonApp.AssemblyInfoInputs.cache
+C:\Users\Theo\Desktop\FoodTrailerJsonApp\obj\Debug\net10.0\FoodTrailerJsonApp.AssemblyInfo.cs
+C:\Users\Theo\Desktop\FoodTrailerJsonApp\obj\Debug\net10.0\FoodTrailerJsonApp.csproj.CoreCompileInputs.cache
+C:\Users\Theo\Desktop\FoodTrailerJsonApp\bin\Debug\net10.0\FoodTrailerJsonApp.exe
+C:\Users\Theo\Desktop\FoodTrailerJsonApp\bin\Debug\net10.0\FoodTrailerJsonApp.deps.json
+C:\Users\Theo\Desktop\FoodTrailerJsonApp\bin\Debug\net10.0\FoodTrailerJsonApp.runtimeconfig.json
+C:\Users\Theo\Desktop\FoodTrailerJsonApp\bin\Debug\net10.0\FoodTrailerJsonApp.dll
+C:\Users\Theo\Desktop\FoodTrailerJsonApp\bin\Debug\net10.0\FoodTrailerJsonApp.pdb
+C:\Users\Theo\Desktop\FoodTrailerJsonApp\obj\Debug\net10.0\FoodTrailerJsonApp.dll
+C:\Users\Theo\Desktop\FoodTrailerJsonApp\obj\Debug\net10.0\refint\FoodTrailerJsonApp.dll
+C:\Users\Theo\Desktop\FoodTrailerJsonApp\obj\Debug\net10.0\FoodTrailerJsonApp.pdb
+C:\Users\Theo\Desktop\FoodTrailerJsonApp\obj\Debug\net10.0\FoodTrailerJsonApp.genruntimeconfig.cache
+C:\Users\Theo\Desktop\FoodTrailerJsonApp\obj\Debug\net10.0\ref\FoodTrailerJsonApp.dll
