@@ -59,10 +59,6 @@ Certified: No
 * How to iterate through collections
 * How to display structured data in a console application
 
-## Future Improvements
 
-* Add filtering (e.g., show only certified crew)
-* Allow user input to add new crew members
-* Save updated data back to JSON
 
----
+
