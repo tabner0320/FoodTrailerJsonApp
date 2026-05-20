@@ -52,7 +52,7 @@ Certified: No
 ------------------------------
 ```
 
-## What I Learned
+What I Learned
 
 * How to work with JSON files in C#
 * How to deserialize JSON into objects
