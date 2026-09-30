@@ -1,8 +1,10 @@
 # Theo's Food Trailer Crew Management App
 
-A C# and .NET console application for managing food trailer crew members.
+A **C# and .NET 10 console application** for managing food trailer crew members.
 
-The application demonstrates object-oriented programming, JSON data persistence, CRUD operations, service-based architecture, and automated testing with xUnit.
+This project demonstrates practical software development concepts including **object-oriented programming, CRUD operations, JSON data persistence, LINQ, service-based architecture, automated testing with xUnit, and Git/GitHub version control**.
+
+---
 
 ## Features
 
@@ -13,31 +15,56 @@ The application demonstrates object-oriented programming, JSON data persistence,
 - Remove crew members
 - Filter crew members by shift
 - View certified crew members
-- Store crew data in JSON
 - Automatically assign IDs to new crew members
+- Save crew information to JSON
+- Load saved crew information from JSON
 - Automated unit testing with xUnit
+
+---
+
+## Application Screenshots
+
+### Main Menu
+
+The console interface provides access to the application's crew-management features.
+
+![Food Trailer Crew Main Menu](images/main-menu.png)
+
+### Crew Member List
+
+Crew information is loaded from the JSON data store and displayed through the console application.
+
+![Food Trailer Crew List](images/crew-list.png)
+
+---
 
 ## CRUD Operations
 
+The application implements the four primary CRUD operations:
+
 | CRUD Operation | Application Feature |
-|---|---|
-| Create | Add crew member |
-| Read | View all, search by name, filter by shift, view certified crew |
-| Update | Update crew member |
-| Delete | Remove crew member |
+| --- | --- |
+| **Create** | Add a new crew member |
+| **Read** | View all crew, search by name, filter by shift, and view certified crew |
+| **Update** | Modify an existing crew member |
+| **Delete** | Remove a crew member |
+
+---
 
 ## Technologies Used
 
 | Technology | Purpose |
-|---|---|
-| C# | Application programming language |
+| --- | --- |
+| C# | Primary programming language |
 | .NET 10 | Application framework |
 | System.Text.Json | JSON serialization and deserialization |
 | LINQ | Searching and filtering crew data |
-| xUnit | Automated testing |
+| xUnit | Automated unit testing |
 | Git | Version control |
-| GitHub | Source-code hosting |
+| GitHub | Repository hosting |
 | Visual Studio Code | Development environment |
+
+---
 
 ## Project Structure
 
@@ -57,6 +84,10 @@ FoodTrailerJsonApp/
 │   ├── CrewServiceTest.cs
 │   └── FoodTrailerJsonApp.Tests.csproj
 │
+├── images/
+│   ├── crew-list.png
+│   └── main-menu.png
+│
 ├── Program.cs
 ├── FoodTrailerJsonApp.csproj
 ├── FoodTrailerJsonApp.sln
@@ -64,13 +95,17 @@ FoodTrailerJsonApp/
 └── README.md
 ```
 
+---
+
 ## Application Architecture
 
-The application separates responsibilities into different parts of the project:
+The project separates the application into models, services, data, testing, and the console user interface.
 
 ### Model
 
-`CrewMember.cs` represents a crew member and contains properties such as:
+`Models/CrewMember.cs` represents an individual food trailer crew member.
+
+Each crew member contains:
 
 - ID
 - Name
@@ -78,32 +113,60 @@ The application separates responsibilities into different parts of the project:
 - Shift
 - Certification status
 
-### Service
+Example:
 
-`CrewService.cs` contains the application's data-management logic.
+```csharp
+public class CrewMember
+{
+    public int Id { get; set; }
 
-The service handles operations such as:
+    public string Name { get; set; } = string.Empty;
 
-- Loading crew members from JSON
-- Saving crew members to JSON
-- Finding crew members
+    public string Role { get; set; } = string.Empty;
+
+    public string Shift { get; set; } = string.Empty;
+
+    public bool Certified { get; set; }
+}
+```
+
+### Service Layer
+
+`Services/CrewService.cs` contains the application's crew-management and data-access logic.
+
+The service is responsible for:
+
+- Loading crew members
+- Saving crew members
+- Searching by name
+- Searching by ID
 - Adding crew members
 - Updating crew members
 - Removing crew members
-- Filtering by shift
-- Filtering certified crew members
+- Filtering crew by shift
+- Retrieving certified crew members
 
-### Data
+Keeping this logic inside a service class helps separate the application's business logic from the console user interface.
 
-`crew.json` acts as the application's persistent data store.
+### JSON Data
 
-Instead of losing the crew information when the application closes, changes are serialized to JSON and saved to the file.
+Crew information is stored in:
+
+```text
+Data/crew.json
+```
+
+The application uses `System.Text.Json` to serialize C# objects into JSON and deserialize JSON back into C# objects.
+
+This allows changes to crew information to remain available after the application closes.
 
 ### Console Interface
 
-`Program.cs` provides the user interface and communicates with `CrewService`.
+`Program.cs` provides the user interface for interacting with the application.
 
-The main menu allows the user to perform the application's CRUD operations.
+The main menu allows users to select different crew-management operations.
+
+---
 
 ## Main Menu
 
@@ -122,28 +185,40 @@ The main menu allows the user to perform the application's CRUD operations.
 8. Exit
 ```
 
+---
+
 ## Automated Testing
 
-The project includes an xUnit test project for testing the `CrewService`.
+The solution contains a separate xUnit test project:
 
-Current tests verify:
+```text
+FoodTrailerJsonApp.Tests
+```
 
-1. Missing JSON files return an empty crew list
+The tests focus on the `CrewService` and use temporary JSON files so the real application data is not modified during testing.
+
+### Current Tests
+
+The test suite verifies that:
+
+1. A missing JSON file returns an empty crew list
 2. Adding a crew member assigns an ID and saves the member
-3. Crew members can be found by ID
+3. A crew member can be found by ID
 4. Name searches are case-insensitive
-5. Crew member information can be updated
-6. Crew members can be removed
+5. Existing crew information can be updated
+6. Existing crew members can be removed
 7. Crew members can be filtered by shift
-8. Certified crew members can be retrieved
+8. Only certified crew members are returned by the certification filter
 
-Current test result:
+### Current Test Results
 
 ```text
 Test summary: total: 8, failed: 0, succeeded: 8, skipped: 0
 ```
 
-## Running the Application
+---
+
+## Getting Started
 
 ### Prerequisites
 
@@ -155,48 +230,105 @@ Verify your installation:
 dotnet --version
 ```
 
-### Clone the Repository
+---
+
+## Clone the Repository
 
 ```bash
 git clone https://github.com/tabner0320/FoodTrailerJsonApp.git
+```
+
+Navigate into the project:
+
+```bash
 cd FoodTrailerJsonApp
 ```
 
-### Run the Application
+---
+
+## Run the Application
+
+From the project directory, run:
 
 ```bash
 dotnet run
 ```
 
-## Running the Tests
+The console menu will appear and allow you to manage the food trailer crew.
 
-Run:
+---
+
+## Run the Tests
+
+Run the xUnit test project with:
 
 ```bash
 dotnet test FoodTrailerJsonApp.Tests/FoodTrailerJsonApp.Tests.csproj
 ```
 
-A successful test run should report all tests passing.
+A successful test run should report:
+
+```text
+total: 8
+failed: 0
+succeeded: 8
+skipped: 0
+```
+
+---
+
+## Key Concepts Demonstrated
+
+This project demonstrates several core C# and software-development concepts:
+
+- Classes and objects
+- Properties
+- Methods
+- Object-oriented programming
+- Separation of concerns
+- Service classes
+- Collections with `List<T>`
+- LINQ
+- File handling
+- JSON serialization
+- JSON deserialization
+- CRUD operations
+- String comparison
+- Automated unit testing
+- Test isolation
+- Git version control
+- GitHub repository management
+
+---
 
 ## What I Learned
 
-Building this project helped strengthen my understanding of:
+Building this project strengthened my understanding of how a C# application can be organized beyond putting all functionality into a single file.
 
-- C# classes and objects
-- Object-oriented programming
-- Separating models and services
-- CRUD operations
-- Reading and writing JSON
-- Serialization and deserialization
-- LINQ queries
-- File handling
-- Automated testing with xUnit
-- Test isolation using temporary files
-- Git and GitHub workflows
-- Resolving Git branch and rebase issues
+I practiced separating responsibilities between models, services, data, tests, and the console interface. I also gained additional experience implementing CRUD operations, working with JSON files, querying collections with LINQ, and creating automated tests with xUnit.
+
+The project also provided practical experience using Git and GitHub to manage commits, synchronize branches, resolve rebase issues, and maintain a clean repository.
+
+---
 
 ## Portfolio Summary
 
-This project demonstrates how I can take a simple console application and organize it into a more maintainable application with separate models, services, persistent JSON data, CRUD functionality, and automated testing.
+**Theo's Food Trailer Crew Management App** demonstrates my ability to build and organize a C#/.NET application that includes:
 
-It represents practical experience with C#, .NET, software architecture, data persistence, testing, and version control.
+- A structured object-oriented design
+- Full CRUD functionality
+- Persistent JSON data storage
+- LINQ-based searching and filtering
+- Separation of application responsibilities
+- Automated xUnit testing
+- Git and GitHub version control
+
+The project started as a JSON-based console application and was expanded into a more structured, testable, and maintainable .NET application.
+
+---
+
+## Author
+
+**Theophilus M. Abner Jr.**
+
+GitHub: [@tabner0320](https://github.com/tabner0320)
